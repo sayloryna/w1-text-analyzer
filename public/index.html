@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="js/index.js" type="module"></script>
+  <title>Text Analyzer</title>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Text Analyzer</h1>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </header>
+    <form class="form-text">
+      <label for="text">Enter text:</label>
+      <textarea id="text" spellcheck="false"></textarea>
+      <button class="button" type="submit">Analyze</button>
+    </form>
+    <div class="analysis">
+      <div class="analysis__item totals">
+        <h2>Totals</h2>
+        <ul>
+          <li>Paragraphs: <span class="paragraphs-count"></span></li>
+          <li>Words: <span class="words-count"></span></li>
+          <li>Characters: <span class="characters-count"></span></li>
+          <li>Short words: <span class="short-words-count"></span></li>
+          <li>Long words: <span class="long-words-count"></span></li>
+        </ul>
+      </div>
+      <div class="analysis__item short-long">
+        <h2>Short & long</h2>
+        <h3>Short words</h3>
+        <span class="short-words"></span>
+        <h3>Long words</h3>
+        <span class="long-words"></span>
+      </div>
+      <div class="analysis__item palindromes">
+        <h2>Palindromes</h2>
+        <a href="https://en.wikipedia.org/wiki/Palindrome" target="_blank">What is a palindrome?</a>
+        <span class="palindromes"></span>
+      </div>
+      <div class="analysis__item frequencies">
+        <h2>Frequencies</h2>
+        <ul class="frequencies-list">
+          <li class="frequency">
+            <label for="word-1">Word 1: </label>
+            <input type="text" id="word-1">&nbsp;
+            <span class="word-1-frequency">0</span> times
+          </li>
+          <li class="frequency">
+            <label for="word-2">Word 2: </label>
+            <input type="text" id="word-2">&nbsp;
+            <span class="word-2-frequency">0</span> times
+          </li>
+          <li class="frequency">
+            <label for="word-3">Word 3: </label>
+            <input type="text" id="word-3">&nbsp;
+            <span class="word-3-frequency">0</span> times
+          </li>
+        </ul>
+      </div>
+      <div class="analysis__item random">
+        <h2>Random words</h2>
+        <span class="random-words"></span>
+      </div>
+      <div class="analysis__item reversed-words">
+        <h2>Reversed words</h2>
+        <span class="reversed-words-list"></span>
+      </div>
+      <div class="analysis__item reversed-text">
+        <h2>Reversed text</h2>
+        <span class="reversed-text-list"></span>
+      </div>
+      <div class="analysis__item forbidden">
+        <h2>Forbidden words</h2>
+        <div>
+          <label for="forbidden-words">Forbidden words:</label>
+          <input type="text" id="forbidden-words">
+        </div>
+        <span class="censured-text"></span>
+      </div>
+      <div class="analysis__item camel-case">
+        <h2>Camel case</h2>
+        <span class="camel-case-text"></span>
+      </div>
+      <div class="analysis__item kebab-case">
+        <h2>Kebab case</h2>
+        <span class="kebab-case-text"></span>
+      </div>
+      <div class="analysis__item snake-case">
+        <h2>Snake case</h2>
+        <span class="snake-case-text"></span>
+      </div>
+    </div>
+</body>
+
+</html>

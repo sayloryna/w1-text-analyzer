@@ -1,0 +1,19 @@
+{
+  "name": "w1-text-analyzer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "serve public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "serve": "^14.2.1",
+    "typescript": "^5.4.3"
+  }
+}
