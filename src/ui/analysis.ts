@@ -1,3 +1,5 @@
+import { getTotalParagraphs } from "../analytics/index.js";
+
 const totalsContainer = document.querySelector(".totals");
 const shortAndLongWordsContainer = document.querySelector(".short-long");
 const palindromesContainer = document.querySelector(".palindromes");
@@ -138,5 +140,6 @@ export const analyzeText = (text: string): void => {
   listenFrequenciesChanges(text);
   listenRandomWordsChanges(text);
 
+  renderParagraphsTotal(getTotalParagraphs(text));
   // Implement the rest of the analysis here
 };
