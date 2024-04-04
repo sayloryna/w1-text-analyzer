@@ -3,6 +3,7 @@ import { getTotalParagraphs } from "../index.js";
 const emptyText = "";
 
 console.log("getTotalParagraphs should return 0 if text is empty.");
+
 if (getTotalParagraphs(emptyText) === 0) {
   console.log("Test passed");
 } else {
@@ -19,7 +20,9 @@ if (getTotalParagraphs(oneParagraphText) === 1) {
 
 const twoParagraphsText =
   "Este es un texto de prueba \n Que incluye 2 parrafos";
+
 console.log("getTotalParagraphs should return 2 if text has 2 paragraphs.");
+
 if (getTotalParagraphs(twoParagraphsText) === 2) {
   console.log("Test passed");
 } else {
