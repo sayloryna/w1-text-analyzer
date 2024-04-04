@@ -6,7 +6,7 @@ export const getTotalParagraphs = (text: string): number => {
   if (isEmptyText(text)) {
     return 0;
   } else {
-    let lines = text.trim().split("<p>");
+    let lines = text.trim().split("\n");
 
     let totalParagraphs = [];
     lines.forEach((line) => {
