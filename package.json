@@ -15,5 +15,8 @@
     "@types/node": "^20.11.30",
     "serve": "^14.2.1",
     "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "netlify": "^13.1.14"
   }
 }
