@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build:dev": "tsc --watch",
     "build": "tsc",
     "start": "serve public"
   },
