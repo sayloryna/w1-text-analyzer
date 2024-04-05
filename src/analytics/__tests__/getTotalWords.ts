@@ -11,6 +11,8 @@ if (getTotalWords(emptyText) === 0) {
 
 const threeWordsText = "esto son 4 palabras";
 console.log("getTotalWords should return 4 if text has 4 words");
+console.log(threeWordsText.split(" ").length);
+console.log(getTotalWords(threeWordsText));
 
 if (getTotalWords(threeWordsText) === 4) {
   console.log("Test passed");
