@@ -1,4 +1,8 @@
-import { getTotalParagraphs, getTotalWords } from "../analytics/index.js";
+import {
+  getTotalParagraphs,
+  getTotalWords,
+  getTotalCharacters,
+} from "../analytics/index.js";
 
 const totalsContainer = document.querySelector(".totals");
 const shortAndLongWordsContainer = document.querySelector(".short-long");
@@ -136,11 +140,11 @@ const listenFrequenciesChanges = (text: string): void => {
 };
 
 export const analyzeText = (text: string): void => {
-  // Keep this two calls
   listenFrequenciesChanges(text);
   listenRandomWordsChanges(text);
 
   renderParagraphsTotal(getTotalParagraphs(text));
   renderWordsTotal(getTotalWords(text));
+  renderCharactersTotal(getTotalCharacters(text));
   // Implement the rest of the analysis here
 };
