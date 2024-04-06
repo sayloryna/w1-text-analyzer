@@ -2,13 +2,10 @@ import { getTotalCharacters } from "../index.js";
 
 const emptyText = ``;
 
-const isGetTotalCharacterZero = getTotalCharacters(emptyText) === 0;
-
 console.log(`
 If text is Empty it should return 0:`);
-console.log(`so '${emptyText}' is: '${getTotalCharacters(emptyText)}'`);
 
-if (isGetTotalCharacterZero) {
+if (getTotalCharacters(emptyText) === 0) {
   console.log("Test passed");
 } else {
   console.log("Test failed");

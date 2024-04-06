@@ -52,14 +52,14 @@ const renderCharactersTotal = (charactersTotal: number): void => {
     charactersTotal.toString();
 };
 
-const renderShortWordsTotal = (shortWordsTotal: number): void => {
+const renderShortWordsTotal = (shortWordsTotal: string[]): void => {
   document.querySelector(".short-words-count")!.textContent =
-    shortWordsTotal.toString();
+    shortWordsTotal.length.toString();
 };
 
-const renderLongWordsTotal = (longWordsTotal: number): void => {
+const renderLongWordsTotal = (longWordsTotal: string[]): void => {
   document.querySelector(".long-words-count")!.textContent =
-    longWordsTotal.toString();
+    longWordsTotal.length.toString();
 };
 
 const renderShortWordsList = (shortWords: string): void => {
@@ -151,5 +151,7 @@ export const analyzeText = (text: string): void => {
   renderCharactersTotal(getTotalCharacters(text));
   renderShortWordsTotal(getTotalShortWords(text, 4));
   renderLongWordsTotal(getTotalLongWords(text, 8));
+  renderLongWordsList(listWords(getTotalLongWords(text, 8)));
+  renderShortWordsList(listWords(getTotalShortWords(text, 4)));
   // Implement the rest of the analysis here
 };

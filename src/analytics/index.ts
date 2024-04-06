@@ -1,14 +1,11 @@
-const isEmptyText = (text: string): boolean => {
-  return text.trim() === "";
-};
-const notLetter = /[^a-z à-ü \d A-Z À-Ü]/g;
-
 export const getTotalParagraphs = (text: string): number => {
   if (isEmptyText(text)) {
     return 0;
   }
 
-  const paragraphs = text.split("\n");
+  const newLine = "\n";
+
+  const paragraphs = text.split(newLine);
   const totalParagraphs = paragraphs.filter(
     (paragraph) => !isEmptyText(paragraph)
   );
@@ -21,7 +18,7 @@ export const getTotalWords = (text: string): number => {
     return 0;
   }
 
-  const words = text.split(/[\s\n]/);
+  const words = splitTextInWords(text);
   const totalWords = words.filter((word) => !isEmptyText(word));
 
   return totalWords.length;
@@ -34,41 +31,40 @@ export const getTotalCharacters = (text: string) => {
 
   const characters = text.split("");
   const characterWithoutSpaces = characters.filter(
-    (character) => character !== "\n" && character !== " "
+    (character) => !spacesAndNewLines.test(character)
   );
+
   return characterWithoutSpaces.length;
 };
 
-export const getTotalShortWords = (text: string, limit: number): number => {
+export const getTotalShortWords = (text: string, limit: number): string[] => {
   if (isEmptyText(text)) {
-    return 0;
+    return [];
   }
 
-  const words = text
-    .split(/[\s\n]/)
-    .map((word) => word.replaceAll(notLetter, ""));
+  const words = splitTextInWords(text);
 
-  const shortWords = words.filter(
-    (word) => word.length <= limit && !isEmptyText(word)
-  );
+  const isShortWord = (word: string): boolean =>
+    word.length <= limit && !isEmptyText(word);
 
-  return shortWords.length;
+  const shortWords = words.filter(isShortWord);
+
+  return shortWords;
 };
 
-export const getTotalLongWords = (text: string, limit: number): number => {
-  if (isEmptyText(text.toString())) {
-    return 0;
+export const getTotalLongWords = (text: string, limit: number): string[] => {
+  if (isEmptyText(text)) {
+    return [];
   }
 
-  const words = text
-    .split(/[\s\n]/)
-    .map((word) => word.replaceAll(notLetter, ""));
+  const words = splitTextInWords(text);
 
-  const longWords = words.filter(
-    (word) => word.length >= limit && !isEmptyText(word)
-  );
+  const isLongWord = (word: string): boolean =>
+    word.length >= limit && !isEmptyText(word);
 
-  return longWords.length;
+  const longWords = words.filter(isLongWord);
+
+  return longWords;
 };
 
 export const listWords = (words: string[]): string => {
@@ -77,3 +73,17 @@ export const listWords = (words: string[]): string => {
   }
   return words.join(",");
 };
+
+const isEmptyText = (text: string): boolean => {
+  return text.trim() === "";
+};
+
+const removeNotLetters = (word: string): string =>
+  word.replaceAll(notLetter, "");
+
+const splitTextInWords = (text: string): string[] => {
+  return text.split(spacesAndNewLines).map(removeNotLetters);
+};
+
+const spacesAndNewLines = /[\s\n]/;
+const notLetter = /[^a-z à-ü \d A-Z À-Ü]/g;
