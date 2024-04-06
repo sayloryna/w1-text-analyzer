@@ -1,6 +1,7 @@
 const isEmptyText = (text: string): boolean => {
   return text.trim() === "";
 };
+const notLetter = /[^a-z à-ü \d A-Z À-Ü]/g;
 
 export const getTotalParagraphs = (text: string): number => {
   if (isEmptyText(text)) {
@@ -36,4 +37,21 @@ export const getTotalCharacters = (text: string) => {
     (character) => character !== "\n" && character !== " "
   );
   return characterWithoutSpaces.length;
+};
+
+export const getTotalShortWords = (text: string): number => {
+  if (isEmptyText(text)) {
+    return 0;
+  }
+  const wordLengthPermited = 4;
+
+  const words = text
+    .split(/[\s\n]/)
+    .map((word) => word.replaceAll(notLetter, ""));
+
+  const shortWords = words.filter(
+    (word) => word.length <= wordLengthPermited && !isEmptyText(word)
+  );
+
+  return shortWords.length;
 };
