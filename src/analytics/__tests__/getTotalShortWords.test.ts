@@ -5,7 +5,7 @@ const emptyText = "";
 console.log(`
 If the  text is empty it should retunr 0:`);
 
-const areTotalShortWordsZero = getTotalShortWords(emptyText) === 0;
+const areTotalShortWordsZero = getTotalShortWords(emptyText, 4) === 0;
 
 if (areTotalShortWordsZero) {
   console.log("Test passed");
@@ -21,7 +21,7 @@ console.log(
 const fiveShourtWordsText = `en este texto, hay: 
 5 palabras mega! cortas`;
 
-const areTotalShortWordsFive = getTotalShortWords(fiveShourtWordsText) === 5;
+const areTotalShortWordsFive = getTotalShortWords(fiveShourtWordsText, 4) === 5;
 
 if (areTotalShortWordsFive) {
   console.log("Test passed");
