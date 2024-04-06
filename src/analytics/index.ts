@@ -39,14 +39,19 @@ export const getTotalCharacters = (text: string) => {
   return characterWithoutSpaces.length;
 };
 
-export const getTotalShortWords = (text: string): string[] => {
+export const getTotalShortWords = (text: string): number => {
+  if (isEmptyText(text)) {
+    return 0;
+  }
   const wordLengthPermited = 4;
 
   const words = text
     .split(/[\s\n]/)
     .map((word) => word.replaceAll(notLetter, ""));
 
-  const shortWords = words.filter((word) => word.length <= wordLengthPermited);
+  const shortWords = words.filter(
+    (word) => word.length <= wordLengthPermited && !isEmptyText(word)
+  );
 
-  return shortWords;
+  return shortWords.length;
 };

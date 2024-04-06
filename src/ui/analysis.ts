@@ -50,14 +50,14 @@ const renderCharactersTotal = (charactersTotal: number): void => {
     charactersTotal.toString();
 };
 
-const renderShortWordsTotal = (shortWords: string[]): void => {
+const renderShortWordsTotal = (shortWords: number): void => {
   document.querySelector(".short-words-count")!.textContent =
-    shortWords.length.toString();
+    shortWords.toString();
 };
 
 const renderLongWordsTotal = (longWords: string[]): void => {
   document.querySelector(".long-words-count")!.textContent =
-    longWords.length.toString();
+    longWords.toString();
 };
 
 const renderShortWordsList = (shortWords: string): void => {
