@@ -15,7 +15,7 @@ if (areTotalLongtWordsZero) {
 
 console.log(
   `
-If the text is not empty it should return the total of short words(less than 4 letter or numbers)`
+If the text is not empty it should return the total of long words(more than 8 letter or numbers)`
 );
 
 const fiveLongtWordsText = `en este texto, hay: 

@@ -72,3 +72,10 @@ export const getTotalLongWords = (text: string): number => {
 
   return longWords.length;
 };
+
+export const listWords = (words: string[]): string => {
+  if (isEmptyText(words.toString())) {
+    return "";
+  }
+  return words.join(",");
+};
