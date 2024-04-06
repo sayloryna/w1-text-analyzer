@@ -20,7 +20,7 @@ export const getTotalWords = (text: string): number => {
     return 0;
   }
 
-  const words = text.split(/[girt\s\n]/);
+  const words = text.split(/[\s\n]/);
   const totalWords = words.filter((word) => !isEmptyText(word));
 
   return totalWords.length;
