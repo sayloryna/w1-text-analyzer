@@ -55,3 +55,20 @@ export const getTotalShortWords = (text: string): number => {
 
   return shortWords.length;
 };
+
+export const getTotalLongWords = (text: string): number => {
+  if (isEmptyText(text)) {
+    return 0;
+  }
+  const minimumWordLengthPermited = 8;
+
+  const words = text
+    .split(/[\s\n]/)
+    .map((word) => word.replaceAll(notLetter, ""));
+
+  const longWords = words.filter(
+    (word) => word.length >= minimumWordLengthPermited && !isEmptyText(word)
+  );
+
+  return longWords.length;
+};
