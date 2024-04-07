@@ -90,11 +90,11 @@ export const getPalindromes = (text: string) => {
   return palindromes.filter(isLongerThanTwoLetters);
 };
 
+////Guardar aqui reusables
+
 const isLongerThanTwoLetters = (word: string): boolean => word.length > 2;
 
-const isEmptyText = (text: string): boolean => {
-  return text.trim() === "";
-};
+const isEmptyText = (text: string): boolean => text === "";
 
 const removeNotLetters = (word: string): string =>
   word.replaceAll(notLetter, "");
