@@ -100,7 +100,23 @@ export const calculateWordIncidence = (
   return matchingWords.length;
 };
 
-////Guardar aqui reusables
+export const getRandomWords = (text: string, maxWords: number): string[] => {
+  if (isEmptyText(text)) {
+    return [""];
+  }
+  const words = splitTextInWords(text);
+  const randomWords: string[] = [];
+
+  for (let wordTotal = 0; wordTotal < maxWords; wordTotal++) {
+    randomWords.push(words[getRandomNumber(words.length)]);
+  }
+
+  return randomWords;
+};
+
+////Guardar aqui reusables y borrar antes de entregar
+const getRandomNumber = (higherNumber: number) =>
+  Math.floor(Math.random() * (higherNumber + 1));
 
 const isLongerThanTwoLetters = (word: string): boolean => word.length > 2;
 
