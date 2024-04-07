@@ -134,8 +134,33 @@ export const geTextReverseed = (text: string): string => {
 export const hideForbbidenWords = (
   text: string,
   forbbidenWords: string[]
-) => {};
+): string => {
+  if (isEmptyText(text)) {
+    return "";
+  }
+
+  const words = text.split(spacesAndNewLines);
+  console.log(words);
+
+  const censoredText = words.map((word) => {
+    if (forbbidenWords.includes(word)) {
+      return word.replaceAll(letter, "*");
+    }
+    return word;
+  });
+  console.log(censoredText);
+
+  return censoredText.join(" ");
+};
+
+/*
+
+
+
+
+*/
 ////Guardar aqui reusables y borrar antes de entregar
+
 const reverseString = (word: string): string =>
   word.split("").reverse().join("");
 const getRandomNumber = (higherNumber: number) =>
@@ -154,3 +179,4 @@ const splitTextInWords = (text: string): string[] => {
 
 const spacesAndNewLines = /[\s\n]/;
 const notLetter = /[^a-z à-ü \d A-Z À-Ü]/g;
+const letter = /[a-z à-ü \d A-Z À-Ü]/g;
