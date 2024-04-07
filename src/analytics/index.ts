@@ -153,7 +153,7 @@ export const hideForbbidenWords = (
   return censoredText.join(" ");
 };
 
-export const convertTextToCamelCase = (text: string) => {
+export const convertTextToCamelCase = (text: string): string => {
   if (isEmptyText(text)) {
     return "";
   }
@@ -164,6 +164,12 @@ export const convertTextToCamelCase = (text: string) => {
   return camelCaseText.join("");
 };
 
+export const convertTextToKebabCase = (text: string) => {
+  if (isEmptyText(text)) {
+    return "";
+  }
+  return splitTextInWords(text).join("-");
+};
 /*
 
 
