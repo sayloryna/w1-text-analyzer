@@ -8,6 +8,7 @@ import {
   getPalindromes,
   calculateWordIncidence,
   getRandomWords,
+  getWordsReversed,
 } from "../analytics/index.js";
 
 const totalsContainer = document.querySelector(".totals");
@@ -158,5 +159,6 @@ export const analyzeText = (text: string): void => {
   renderShortWordsList(listWords(getTotalShortWords(text, 4)));
   renderPalindromes(getPalindromes(text).join(", ").toUpperCase());
   renderRandomWords(getRandomWords(text, 3).join(", ").toUpperCase());
+  renderReversedWords(getWordsReversed(text));
   // Implement the rest of the analysis here
 };
