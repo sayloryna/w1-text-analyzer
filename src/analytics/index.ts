@@ -131,6 +131,10 @@ export const geTextReverseed = (text: string): string => {
   return reverseString(text);
 };
 
+export const hideForbbidenWords = (
+  text: string,
+  forbbidenWords: string[]
+) => {};
 ////Guardar aqui reusables y borrar antes de entregar
 const reverseString = (word: string): string =>
   word.split("").reverse().join("");
