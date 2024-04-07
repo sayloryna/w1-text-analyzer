@@ -90,6 +90,16 @@ export const getPalindromes = (text: string) => {
   return palindromes.filter(isLongerThanTwoLetters);
 };
 
+export const calculateWordIncidence = (
+  text: string,
+  wordToMatch: string
+): number => {
+  const words = splitTextInWords(text);
+  const matchingWords = words.filter((word) => word === wordToMatch);
+
+  return matchingWords.length;
+};
+
 ////Guardar aqui reusables
 
 const isLongerThanTwoLetters = (word: string): boolean => word.length > 2;
