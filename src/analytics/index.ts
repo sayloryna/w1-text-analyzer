@@ -87,9 +87,10 @@ export const getPalindromes = (text: string) => {
   const palindromes = words.filter(
     (word, index) => word.toLowerCase() === invertedWords[index].toLowerCase()
   );
-
-  return palindromes;
+  return palindromes.filter(isLongerThanTwoLetters);
 };
+
+const isLongerThanTwoLetters = (word: string): boolean => word.length > 2;
 
 const isEmptyText = (text: string): boolean => {
   return text.trim() === "";
