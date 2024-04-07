@@ -120,13 +120,20 @@ export const getWordsReversed = (text: string): string => {
   }
 
   const words = text.split(spacesAndNewLines);
-  const reverseString = (word: string): string =>
-    word.split("").reverse().join("");
   const reversedWords = words.map(reverseString);
   return reversedWords.join(" ");
 };
 
+export const geTextReverseed = (text: string): string => {
+  if (isEmptyText(text)) {
+    return "";
+  }
+  return reverseString(text);
+};
+
 ////Guardar aqui reusables y borrar antes de entregar
+const reverseString = (word: string): string =>
+  word.split("").reverse().join("");
 const getRandomNumber = (higherNumber: number) =>
   Math.floor(Math.random() * (higherNumber + 1));
 
