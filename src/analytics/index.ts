@@ -168,7 +168,15 @@ export const convertTextToKebabCase = (text: string) => {
   if (isEmptyText(text)) {
     return "";
   }
+  console.log(splitTextInWords(text));
   return splitTextInWords(text).join("-");
+};
+
+export const convertTextToSnakeCase = (text: string) => {
+  if (isEmptyText(text)) {
+    return "";
+  }
+  return splitTextInWords(text).join("_");
 };
 /*
 
@@ -180,6 +188,7 @@ export const convertTextToKebabCase = (text: string) => {
 
 const reverseString = (word: string): string =>
   word.split("").reverse().join("");
+
 const getRandomNumber = (higherNumber: number) =>
   Math.floor(Math.random() * (higherNumber + 1));
 
@@ -190,8 +199,13 @@ const isEmptyText = (text: string): boolean => text === "";
 const removeNotLetters = (word: string): string =>
   word.replaceAll(notLetter, "");
 
+const IsNotEmptyText = (word: string): boolean => !isEmptyText(word);
+
 const splitTextInWords = (text: string): string[] => {
-  return text.split(spacesAndNewLines).map(removeNotLetters);
+  return text
+    .split(spacesAndNewLines)
+    .filter(IsNotEmptyText)
+    .map(removeNotLetters);
 };
 
 const spacesAndNewLines = /[\s\n]/;

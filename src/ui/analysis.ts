@@ -12,6 +12,8 @@ import {
   geTextReverseed,
   hideForbbidenWords,
   convertTextToCamelCase,
+  convertTextToKebabCase,
+  convertTextToSnakeCase,
 } from "../analytics/index.js";
 
 const totalsContainer = document.querySelector(".totals");
@@ -164,6 +166,8 @@ export const analyzeText = (text: string): void => {
   renderReversedWords(getWordsReversed(text));
   renderReversedText(geTextReverseed(text));
   renderCamelCase(convertTextToCamelCase(text));
+  renderKebabCase(convertTextToKebabCase(text));
+  renderSnakeCase(convertTextToSnakeCase(text));
 
   // Implement the rest of the analysis here
 };
