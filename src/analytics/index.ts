@@ -153,6 +153,17 @@ export const hideForbbidenWords = (
   return censoredText.join(" ");
 };
 
+export const convertTextToCamelCase = (text: string) => {
+  if (isEmptyText(text)) {
+    return "";
+  }
+  const words = splitTextInWords(text);
+  const camelCaseText = words.map(
+    (word) => word.slice(0, 1).toUpperCase() + word.slice(1)
+  );
+  return camelCaseText.join("");
+};
+
 /*
 
 
