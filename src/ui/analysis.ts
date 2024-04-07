@@ -5,6 +5,7 @@ import {
   getTotalShortWords,
   getTotalLongWords,
   listWords,
+  getPalindromes,
 } from "../analytics/index.js";
 
 const totalsContainer = document.querySelector(".totals");
@@ -153,5 +154,7 @@ export const analyzeText = (text: string): void => {
   renderLongWordsTotal(getTotalLongWords(text, 8));
   renderLongWordsList(listWords(getTotalLongWords(text, 8)));
   renderShortWordsList(listWords(getTotalShortWords(text, 4)));
+
+  renderPalindromes(getPalindromes(text).join(", "));
   // Implement the rest of the analysis here
 };

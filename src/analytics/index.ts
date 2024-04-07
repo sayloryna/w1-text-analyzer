@@ -71,7 +71,24 @@ export const listWords = (words: string[]): string => {
   if (isEmptyText(words.toString())) {
     return "";
   }
-  return words.join(",");
+  return words.join(", ");
+};
+
+export const getPalindromes = (text: string) => {
+  if (isEmptyText(text)) {
+    return [];
+  }
+  const words = splitTextInWords(text);
+  const reverseWord = (word: string): string =>
+    word.split("").reverse().join("");
+
+  const invertedWords = words.map(reverseWord);
+
+  const palindromes = words.filter(
+    (word, index) => word.toLowerCase() === invertedWords[index].toLowerCase()
+  );
+
+  return palindromes;
 };
 
 const isEmptyText = (text: string): boolean => {
