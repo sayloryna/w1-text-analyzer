@@ -7,6 +7,7 @@ import {
   listWords,
   getPalindromes,
   calculateWordIncidence,
+  getRandomWords,
 } from "../analytics/index.js";
 
 const totalsContainer = document.querySelector(".totals");
@@ -78,14 +79,14 @@ const renderPalindromes = (palindromes: string): void => {
   palindromesContainer.querySelector(".palindromes")!.textContent = palindromes;
 };
 
-const renderForbiddenWords = (forbiddenWords: string): void => {
-  forbiddenContainer.querySelector(".censured-text")!.textContent =
-    forbiddenWords;
-};
-
 const renderRandomWords = (randomWords: string): void => {
   randomWordsContainer.querySelector(".random-words")!.textContent =
     randomWords;
+};
+
+const renderForbiddenWords = (forbiddenWords: string): void => {
+  forbiddenContainer.querySelector(".censured-text")!.textContent =
+    forbiddenWords;
 };
 
 const renderReversedWords = (reversedWords: string): void => {
@@ -155,7 +156,7 @@ export const analyzeText = (text: string): void => {
   renderLongWordsTotal(getTotalLongWords(text, 8));
   renderLongWordsList(listWords(getTotalLongWords(text, 8)));
   renderShortWordsList(listWords(getTotalShortWords(text, 4)));
-
-  renderPalindromes(getPalindromes(text).join(", "));
+  renderPalindromes(getPalindromes(text).join(", ").toUpperCase());
+  renderRandomWords(getRandomWords(text, 3).join(", ").toUpperCase());
   // Implement the rest of the analysis here
 };
