@@ -10,6 +10,7 @@ import {
   getRandomWords,
   getWordsReversed,
   geTextReverseed,
+  hideForbbidenWords,
 } from "../analytics/index.js";
 
 const totalsContainer = document.querySelector(".totals");
@@ -125,7 +126,7 @@ const listenRandomWordsChanges = (text: string): void => {
         /,\s*/
       );
 
-      // Render the forbidden words
+      renderForbiddenWords(hideForbbidenWords(text, forbiddenWords));
     });
 };
 
