@@ -11,6 +11,7 @@ import {
   getWordsReversed,
   geTextReverseed,
   hideForbbidenWords,
+  convertTextToCamelCase,
 } from "../analytics/index.js";
 
 const totalsContainer = document.querySelector(".totals");
@@ -121,7 +122,6 @@ const listenRandomWordsChanges = (text: string): void => {
   forbiddenContainer
     .querySelector("input")!
     .addEventListener("input", (event) => {
-      // The variable forbiddenWords contains the words entered by the user in the input, already splitted
       const forbiddenWords = (event.target as HTMLInputElement).value.split(
         /,\s*/
       );
@@ -163,6 +163,7 @@ export const analyzeText = (text: string): void => {
   renderRandomWords(getRandomWords(text, 3).join(", "));
   renderReversedWords(getWordsReversed(text));
   renderReversedText(geTextReverseed(text));
+  renderCamelCase(convertTextToCamelCase(text));
 
   // Implement the rest of the analysis here
 };
