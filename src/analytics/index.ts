@@ -114,6 +114,18 @@ export const getRandomWords = (text: string, maxWords: number): string[] => {
   return randomWords;
 };
 
+export const getWordsReversed = (text: string): string => {
+  if (isEmptyText(text)) {
+    return "";
+  }
+
+  const words = text.split(spacesAndNewLines);
+  const reverseString = (word: string): string =>
+    word.split("").reverse().join("");
+  const reversedWords = words.map(reverseString);
+  return reversedWords.join(" ");
+};
+
 ////Guardar aqui reusables y borrar antes de entregar
 const getRandomNumber = (higherNumber: number) =>
   Math.floor(Math.random() * (higherNumber + 1));
