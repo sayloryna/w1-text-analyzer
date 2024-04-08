@@ -74,19 +74,13 @@ export const listWords = (words: string[]): string => {
   return words.join(", ");
 };
 
-export const getPalindromes = (text: string) => {
-  if (isEmptyText(text)) {
-    return [];
-  }
+export const getPalindromes = (text: string): string[] => {
   const words = splitTextInWords(text);
-  const reverseWord = (word: string): string =>
-    word.split("").reverse().join("");
-
-  const invertedWords = words.map(reverseWord);
 
   const palindromes = words.filter(
-    (word, index) => word.toLowerCase() === invertedWords[index].toLowerCase()
+    (word) => word.toLowerCase() === reverseString(word).toLowerCase()
   );
+
   return palindromes.filter(isLongerThanTwoLetters);
 };
 
@@ -178,13 +172,6 @@ export const convertTextToSnakeCase = (text: string) => {
   }
   return splitTextInWords(text).join("_");
 };
-/*
-
-
-
-
-*/
-////Guardar aqui reusables y borrar antes de entregar
 
 const reverseString = (word: string): string =>
   word.split("").reverse().join("");

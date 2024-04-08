@@ -7,13 +7,15 @@
   "scripts": {
     "build:dev": "tsc --watch",
     "build": "tsc",
-    "start": "serve public"
+    "start": "serve public",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.11.30",
+    "husky": "^9.0.11",
     "serve": "^14.2.1",
     "typescript": "^5.4.3"
   },
